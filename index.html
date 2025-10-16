@@ -1,33 +1,220 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
-    <meta charset="UTF-8">
-    <title>Recool Projekt</title>
-    <style>
-        body {
-            font-family: Arial;
-            background: linear-gradient(120deg, #74ABE2, #5563DE);
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-        .card {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 15px;
-            display: inline-block;
-            width: 300px;
-        }
-        h1 { font-size: 2.5em; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎭 H2 – Vízió dokumentum</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(120deg, #ece9f0, #ffffff);
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #5b4b8a;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #5b4b8a;
+      border-bottom: 3px solid #d7c4ff;
+      padding-bottom: 5px;
+      margin-top: 40px;
+    }
+
+    h3 {
+      color: #6a5acd;
+      margin-top: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 0.95em;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f4efff;
+      color: #333;
+    }
+
+    tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .status-ok {
+      color: green;
+      font-weight: bold;
+    }
+
+    .status-progress {
+      color: #e67e22;
+      font-weight: bold;
+    }
+
+    code {
+      background: #f4f4f4;
+      padding: 3px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      color: #222;
+    }
+
+    .footer {
+      text-align: center;
+      color: #888;
+      margin-top: 50px;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
-    <h1>🎨 Recool Projekt</h1>
-    <div class="card">
-        <p>Ez az oldal bemutatja a Recool design-projektet.</p>
-        <a href="https://github.com/felhasznalonev/recool-project" style="color:yellow;">
-            Nézd meg a GitHubon
-        </a>
+
+  <header>
+    <h1>🎭 H2 – Vízió dokumentum</h1>
+    <p><strong>Projekt:</strong> Magasság-alapú színházi jegyfoglaló rendszer (FastAPI)</p>
+    <p><strong>Csapat:</strong> Team1 – Matyi Bernát, Bodnár Dániel</p>
+    <p><strong>Verzió:</strong> v0.2 – H2 &nbsp; | &nbsp; <strong>Dátum:</strong> 2025. október</p>
+  </header>
+
+  <main>
+    <h2>1. Leadandó összefoglaló</h2>
+    <table>
+      <tr><th>Dokumentum</th><th>Állapot</th><th>Leírás</th></tr>
+      <tr><td>✅ Vízió dokumentum</td><td class="status-ok">Kész</td><td>A projekt céljának, problémájának és funkcióinak meghatározása</td></tr>
+      <tr><td>✅ Projektterv frissítve</td><td class="status-ok">H1 alapján rendezve</td><td>Mérföldkövek, szerepek, FastAPI technológia rögzítve</td></tr>
+      <tr><td>🚧 Munkanapló</td><td class="status-progress">Elindítva</td><td>Nyomon követi a csapattagok munkáját – docs/worklog.md</td></tr>
+    </table>
+
+    <h2>2. Vízió dokumentum</h2>
+
+    <h3>2.1 Címlap</h3>
+    <table>
+      <tr><th>Mező</th><th>Tartalom</th></tr>
+      <tr><td>Projekt címe</td><td>Magasság-alapú színházi jegyfoglaló rendszer</td></tr>
+      <tr><td>Csapat neve</td><td>Team1</td></tr>
+      <tr><td>Tantárgy</td><td>Szoftvertechnológia</td></tr>
+      <tr><td>Oktató</td><td>(kitöltendő)</td></tr>
+      <tr><td>Verzió</td><td>v0.2 – H2</td></tr>
+      <tr><td>Dátum</td><td>2025. október</td></tr>
+    </table>
+
+    <h3>2.2 Bevezetés</h3>
+    <p>A projekt célja egy olyan <em>modern, API-alapú jegyfoglaló rendszer</em> készítése színházak számára, amely <em>figyelembe veszi a nézők magasságát</em> a foglalás során. A rendszer fő célja, hogy <strong>minimalizálja a nézői élményt rontó helyzeteket</strong>, amikor egy magasabb ember ül egy alacsonyabb elé, ezzel kitakarva a színpadot.</p>
+    <p>Az API <strong>FastAPI technológiával</strong> készül, <strong>Swagger dokumentációval</strong> és <strong>valós validációs logikával</strong>.</p>
+
+    <h3>2.3 Probléma megfogalmazása</h3>
+    <p>A hagyományos jegyvásárlási rendszerek kizárólag helyfoglalás alapján működnek. Nem veszik figyelembe a néző fizikai adottságait, így gyakori panasz, hogy a látótér korlátozott, ha előtte magasabb néző ül.</p>
+
+    <ul>
+      <li>Helyfoglalás közömbös a látási élményre</li>
+      <li>Nincs vizuális vagy magasság-alapú ellenőrzés</li>
+      <li>Felhasználók frusztrációja → negatív élmény</li>
+    </ul>
+
+    <p><strong>A rendszer célja:</strong> automatikus ellenőrzés foglaláskor — csak akkor engedélyezett, ha az előtte ülők magassága nem haladja meg a kérelmezőét egy tolerancia értékkel.</p>
+
+    <h3>2.4 A termék helye a piacon</h3>
+    <table>
+      <tr><th>Szempont</th><th>Hagyományos rendszerek</th><th>A mi rendszerünk</th></tr>
+      <tr><td>Foglalási logika</td><td>Csak ülés azonosító alapján</td><td><em>Magasság + sor pozíció alapján döntés</em></td></tr>
+      <tr><td>Felhasználói élmény</td><td>Statikus</td><td><em>Adaptív, személyre szabott</em></td></tr>
+      <tr><td>Előny</td><td>Gyors foglalás</td><td><em>Minőségi nézői élmény</em></td></tr>
+      <tr><td>Innovációs szint</td><td>Standard jegykezelés</td><td><em>Új jegyfoglalási logika</em></td></tr>
+    </table>
+
+    <h3>2.5 Felhasználói környezet</h3>
+    <table>
+      <tr><th>Felhasználó</th><th>Jellemzők</th><th>Elvárás</th></tr>
+      <tr><td>Jegyvásárló</td><td>Magasságát megadja</td><td>Igazságos ülőhely ajánlása</td></tr>
+      <tr><td>Rendszer admin</td><td>Feltölti az ülésrend adatokat</td><td>Átlátható foglalási struktúra</td></tr>
+      <tr><td>Oktató / Értékelő</td><td>GitHubon nézi meg a dokumentációt</td><td>Átlátható logika + tiszta API</td></tr>
+    </table>
+
+    <h3>2.6 A termék előnyei</h3>
+    <table>
+      <tr><th>Érintett</th><th>Előny</th></tr>
+      <tr><td>Nézők</td><td>Jobb látótér, kevesebb frusztráció</td></tr>
+      <tr><td>Színházak</td><td>Innovatív jegyértékesítés → marketing előny</td></tr>
+      <tr><td>Oktató / Bíráló</td><td>Egyedi projektötlet, átgondolt logika</td></tr>
+    </table>
+
+    <h3>2.7 Feltételezések és függőségek</h3>
+    <table>
+      <tr><th>Típus</th><th>Megnevezés</th></tr>
+      <tr><td>Feltételezés</td><td>A felhasználó megadja a magasságát foglaláskor</td></tr>
+      <tr><td>Feltételezés</td><td>A színház ülésadatai előre fel vannak töltve</td></tr>
+      <tr><td>Függőség</td><td>FastAPI + Python 3.11 futtatási környezet</td></tr>
+      <tr><td>Függőség</td><td>Swagger UI a bemutatáshoz elérhető marad</td></tr>
+    </table>
+
+    <h3>2.8 A termék fő funkciói</h3>
+    <table>
+      <tr><th>Prioritás</th><th>Funkció</th><th>Rövid leírás</th></tr>
+      <tr><td>Kötelező</td><td>/seats lekérdezés</td><td>Elérhető férőhelyek visszaadása</td></tr>
+      <tr><td>Kötelező</td><td>/reserve (POST)</td><td>Foglalás magasságellenőrzéssel</td></tr>
+      <tr><td>Kötelező</td><td>Magasság-ellenőrző logika</td><td>Ha előtte ül magasabb, elutasítva</td></tr>
+      <tr><td>Ajánlott</td><td>Hibakezelés egységes JSON válaszokkal</td><td>-</td></tr>
+      <tr><td>Jó ha van</td><td>Alternatív ülőhely javaslat</td><td>Elutasítás után ajánl más helyet</td></tr>
+    </table>
+
+    <h3>2.9 Minőségi elvárások</h3>
+    <table>
+      <tr><th>Szempont</th><th>Elvárás</th></tr>
+      <tr><td>Teljesítmény</td><td>Válaszidő &lt;150 ms</td></tr>
+      <tr><td>Felhasználói élmény</td><td>Egyértelmű visszajelzés</td></tr>
+      <tr><td>Kódminőség</td><td>PEP8, black, ruff</td></tr>
+      <tr><td>Tesztelhetőség</td><td>pytest – magasságlogika külön tesztelve</td></tr>
+      <tr><td>Dokumentáció</td><td>Swagger UI + README alapján futtatható</td></tr>
+    </table>
+
+    <h3>2.10 Kockázati lista</h3>
+    <table>
+      <tr><th>Kockázat</th><th>Valószínűség</th><th>Hatás</th><th>Megoldás</th></tr>
+      <tr><td>Magasságlogika félreértése</td><td>Közepes</td><td>Közepes</td><td>Egyszerű szabály: „előtte levő sorok ellenőrzése”</td></tr>
+      <tr><td>Időkeret szűkössége</td><td>Közepes</td><td>Magas</td><td>CRUD + validáció előbb, algoritmus később</td></tr>
+      <tr><td>Dokumentációs követelmények alulbecsülése</td><td>Magas</td><td>Közepes</td><td>H1 és H2 struktúra előre létrehozva</td></tr>
+    </table>
+
+    <h3>2.11 Szótár</h3>
+    <table>
+      <tr><th>Fogalom</th><th>Definíció</th></tr>
+      <tr><td>Sor / Oszlop</td><td>A színházi ülőhelyek azonosítására szolgáló koordináta</td></tr>
+      <tr><td>Foglalás</td><td>Ülőhely + magassági adat rögzítése</td></tr>
+      <tr><td>Magasság-limit</td><td>Az előtte ülők magasságának maximuma</td></tr>
+      <tr><td>API</td><td>FastAPI alapú végpontok rendszere</td></tr>
+      <tr><td>Swagger UI</td><td>Automatikus dokumentáció a teszteléshez</td></tr>
+    </table>
+
+    <div class="footer">
+      <p>© 2025 Team1 – Magasság-alapú jegyfoglaló rendszer</p>
     </div>
+  </main>
 </body>
 </html>
