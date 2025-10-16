@@ -1,10 +1,176 @@
-<!-- beillesztés a nav#side megfelelő helyére -->
-<hr>
-<div style="margin-top:10px">
-  <strong>Oldalak (külön HTML):</strong>
-  <div style="margin-top:8px">
-    <a href="H1.html">H1 (külön oldal)</a><br/>
-    <a href="H2.html">H2 (külön oldal)</a><br/>
-    <a href="H3.html">H3 (külön oldal)</a>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎭 "dájnamik" DUO – Színházi jegyfoglaló</title>
+  <style>
+    :root {
+      --accent: #5b4b8a;
+      --accent-light: #6f5bd1;
+      --muted: #ccc;
+      --bg: linear-gradient(135deg,#f3f2fb,#ffffff);
+      --card-bg: #fff;
+      --maxw: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      box-shadow: 0 6px 18px rgba(91,75,138,0.12);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    nav a {
+      padding: 0.8rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: var(--accent-light);
+    }
+
+    main {
+      max-width: var(--maxw);
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 6px 20px rgba(30,30,60,0.06);
+      margin-bottom: 2rem;
+    }
+
+    .card h2 {
+      color: var(--accent);
+      margin-top: 0;
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 0.5rem;
+    }
+
+    .card p {
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: var(--accent-light);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #111;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: var(--accent-light);
+      text-decoration: none;
+    }
+
+    @media (max-width: 880px){
+      nav { flex-direction: column; gap: 0.75rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎭 Magasság-alapú Színházi Jegyfoglaló</h1>
+    <p>"dájnamik DUO" – Matyi Bernát & Bodnár Dániel | Szoftvertechnológia projekt</p>
+  </header>
+
+  <nav>
+    <a href="H1.html">📘 H1 – Projektterv</a>
+    <a href="H2.html">📗 H2 – Vízió</a>
+    <a href="H3.html">📙 H3 – Rendszerterv</a>
+  </nav>
+
+  <main>
+    <div class="card">
+      <h2>Üdvözöl a Team1 projektoldala!</h2>
+      <p>
+        Ez az oldal bemutatja a <strong>Magasság-alapú színházi jegyfoglaló rendszer</strong> fejlesztését.  
+        A célunk, hogy a nézők kényelmesen, igazságosan, és élményszerűen foglalhassanak helyet a színházban —
+        figyelembe véve az ülésrendet és a nézők magasságát.
+      </p>
+      <div class="btn-container">
+        <a class="btn" href="H2.html">📄 Megnézem a Vízió dokumentumot</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Főbb funkciók</h2>
+      <ul>
+        <li>Magasság-alapú ülésellenőrzés foglaláskor</li>
+        <li>FastAPI alapú backend</li>
+        <li>Swagger dokumentáció és validáció</li>
+        <li>Egyszerű, letisztult frontend</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Team1 | <a href="https://github.com/beninho08/szoftvertech-projekt" target="_blank">GitHub repó</a></p>
+  </footer>
+
+</body>
+</html>
