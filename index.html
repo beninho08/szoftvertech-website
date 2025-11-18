@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎭 "dájnamik" DUO – Színházi jegyfoglaló</title>
+  <title>🎭 "dájnamik" DUO – Színházi jegyfoglaló rendszer</title>
   <style>
     :root {
       --accent: #5b4b8a;
@@ -33,13 +33,13 @@
 
     header h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       letter-spacing: 1px;
     }
 
     header p {
       margin-top: 0.5rem;
-      font-size: 1rem;
+      font-size: 1.1rem;
       opacity: 0.85;
     }
 
@@ -48,7 +48,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      margin: 1.5rem 0;
+      margin: 2rem 0;
     }
 
     nav a {
@@ -86,9 +86,13 @@
       padding-bottom: 0.5rem;
     }
 
-    .card p {
+    .card p, .card ul {
       line-height: 1.6;
       color: #444;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
     }
 
     footer {
@@ -108,48 +112,59 @@
     @media (max-width: 880px){
       nav { flex-direction: column; gap: 0.75rem; }
     }
-
   </style>
 </head>
 <body>
 
   <header>
-    <h1>🎭 Magasság-alapú Színházi Jegyfoglaló</h1>
-    <p>"dájnamik DUO" – Matyi Bernát & Bodnár Dániel | Szoftvertechnológia projekt</p>
+    <h1>🎭 Magasság-alapú Színházi Jegyfoglaló Rendszer</h1>
+    <p>"dájnamik DUO" – Matyi Bernát & Bodnár Dániel | Szoftvertechnológia projekt – 2025</p>
   </header>
 
   <nav>
     <a href="H1.html">📘 H1 – Projektterv</a>
-    <a href="H2.html">📗 H2 – Vízió</a>
+    <a href="H2.html">📗 H2 – Vízió dokumentum</a>
     <a href="H3|1.html">📙 H3/1 – Projekt áttekintés</a>
-    <a href="H3|2.html">📙 H3/2 – SRS</a>
+    <a href="H3|2.html">📙 H3/2 – SRS specifikáció</a>
     <a href="H3|3.html">📙 H3/3 – Szótár</a>
     <a href="H3|4.html">📙 H3/4 – Felhasználói dokumentáció</a>
   </nav>
 
   <main>
     <div class="card">
-      <h2>Üdvözöl a "dájnamik"DUO projektoldala!</h2>
+      <h2>Üdvözlünk a projektoldalon!</h2>
       <p>
-        Ez az oldal bemutatja a <strong>Magasság-alapú színházi jegyfoglaló rendszer</strong> fejlesztését.  
-        A célunk, hogy a nézők kényelmesen, igazságosan, és élményszerűen foglalhassanak helyet a színházban —
-        figyelembe véve az ülésrendet és a nézők magasságát.
-      </p>     
+        Ez az oldal bemutatja a <strong>Magasság-alapú színházi jegyfoglaló rendszer</strong> fejlesztését, amely a nézők magasságát figyelembe véve biztosít igazságos és élményszerű helyfoglalást.  
+        A projekt célja, hogy a színházi élmény ne szenvedjen csorbát a takarás miatt – a rendszer automatikusan ellenőrzi, hogy a kiválasztott ülés előtt ülő nézők nem akadályozzák-e a rálátást.
+      </p>
     </div>
 
     <div class="card">
-      <h2>Főbb funkciók</h2>
+      <h2>Technológiai háttér</h2>
       <ul>
-        <li>Magasság-alapú ülésellenőrzés foglaláskor</li>
-        <li>FastAPI alapú backend</li>
-        <li>Swagger dokumentáció és validáció</li>
-        <li>Egyszerű, letisztult frontend</li>
+        <li><strong>Backend:</strong> FastAPI (Python 3.11+)</li>
+        <li><strong>Tesztelés:</strong> Swagger UI + pytest</li>
+        <li><strong>API:</strong> REST alapú végpontok</li>
+        <li><strong>Validáció:</strong> Magasságlogika + hibakezelés</li>
+        <li><strong>Fejlesztési eszközök:</strong> ruff, black, GitHub Actions</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Dokumentumstruktúra</h2>
+      <ul>
+        <li><strong>H1:</strong> Projektterv – célok, ütemezés, szerepkörök</li>
+        <li><strong>H2:</strong> Vízió – felhasználói igények, célrendszer</li>
+        <li><strong>H3/1:</strong> Áttekintés – specifikációs fázis összefoglalása</li>
+        <li><strong>H3/2:</strong> SRS – részletes funkcionális és nem-funkcionális követelmények</li>
+        <li><strong>H3/3:</strong> Szótár – fogalmak és API definíciók</li>
+        <li><strong>H3/4:</strong> Felhasználói dokumentáció – telepítés, használat, hibaelhárítás</li>
       </ul>
     </div>
   </main>
 
   <footer>
-    <p>© 2025 Team1 | <a href="https://github.com/beninho08/szoftvertech-projekt" target="_blank">GitHub repó</a></p>
+    <p>© 2025 „dájnamik DUO” | <a href="https://github.com/beninho08/szoftvertech-website" target="_blank">GitHub repó</a></p>
   </footer>
 
 </body>
