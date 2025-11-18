@@ -16,20 +16,25 @@
     h1, h2, h3 {
       color: #5b4b8a;
     }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.5rem; margin-top: 1.5rem; }
     table {
       width: 100%;
       border-collapse: collapse;
       margin: 1rem 0;
     }
     table, th, td {
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
     }
     th, td {
-      padding: 0.6rem;
+      padding: 0.7rem;
       text-align: left;
+      vertical-align: top;
     }
     th {
-      background: #eee;
+      background: #efeff7;
+      color: #352c55;
+      font-weight: 600;
     }
     ul {
       margin: 0.5rem 0 0.5rem 1.5rem;
@@ -37,7 +42,14 @@
     .note {
       color: #555;
       font-style: italic;
+      margin-top: 0.5rem;
     }
+    .muted {
+      color: #777;
+      font-style: italic;
+    }
+    a { color: #7a65d9; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -50,8 +62,16 @@
   <h2>👥 Csapattagok és szerepek</h2>
   <table>
     <tr><th>Név</th><th>Szerepkör</th><th>Felelősségek</th></tr>
-    <tr><td><em>Matyi Bernát</em></td><td>Fejlesztő & Dokumentáció felelős</td><td>Python modulok implementálása, dokumentációk (SRS, Vízió, tervek) formázása és előkészítése leadásra</td></tr>
-    <tr><td><em>Bodnár Dániel</em></td><td>Csapatvezető & Tesztelési felelős</td><td>Ütemezés, GitHub repo kezelése, mérföldkövek nyomon követése, tesztelési terv és automatizált tesztek</td></tr>
+    <tr>
+      <td><em>Matyi Bernát</em></td>
+      <td>Fejlesztő &amp; Dokumentáció felelős</td>
+      <td>Python modulok implementálása, dokumentációk (SRS, Vízió, tervek) formázása és előkészítése leadásra</td>
+    </tr>
+    <tr>
+      <td><em>Bodnár Dániel</em></td>
+      <td>Csapatvezető &amp; Tesztelési felelős</td>
+      <td>Ütemezés, GitHub repo kezelése, mérföldkövek nyomon követése, tesztelési terv és automatizált tesztek</td>
+    </tr>
   </table>
 
   <p><strong>Csapatkommunikáció:</strong></p>
@@ -70,7 +90,8 @@
     <tr><td><em>H4</em></td><td>Analízis modell + rendszertervezési dokumentum (UML / architektúra)</td><td><em>9. hét</em></td></tr>
     <tr><td><em>H5</em></td><td>Python prototípus + Tesztelési terv + GitHub-ra feltöltött működő verzió</td><td><em>12. hét</em></td></tr>
   </table>
-  <p class="note">💬 Megjegyzés: H4 előtt buffer idő fenntartva (vizsgák / egyéb terhelés miatt)</p>
+  <p class="note">💬 Megjegyzés: H4 előtt buffer idő fenntartva (vizsgák / egyéb terhelés miatt)
+  )</p>
 
   <h2>🛠 Technológiák és eszközök</h2>
   <table>
@@ -119,3 +140,28 @@
         <li>Unit tesztek (pytest)</li>
         <li>Input-validáció teszt</li>
         <li>Egy egyszerű endpoint / funkció integrációs teszt</li>
+      </ul>
+    </li>
+    <li>Minőségi kritérium: kritikus hiba nélkül lehessen futtatni a bemutató előtt</li>
+  </ul>
+
+  <h2>🖥 Leszállítás &amp; bemutatás</h2>
+  <ul>
+    <li><em>Bemutatás módja:</em> Élő demo – Python backend futtatása, funkció bemutatása tesztadatokkal</li>
+    <li><em>Végső leadás:</em> GitHub repo link + rövid futtatási útmutató (README.md)</li>
+    <li>(<em>Opcionális:</em> .zip export beadási rendszerbe)</li>
+    <li><em>Végső prezentáció tervezett ideje:</em><br><em>12. hét vége</em></li>
+  </ul>
+
+  <h2>📚 Források</h2>
+  <ul>
+    <li><a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener">https://fastapi.tiangolo.com</a> (ha FastAPI lesz kiválasztva)</li>
+    <li><a href="https://docs.pytest.org" target="_blank" rel="noopener">https://docs.pytest.org</a> (pytest dokumentáció)</li>
+    <li>Clean Code – Robert C. Martin</li>
+    <li>GitHub Docs – <a href="https://docs.github.com/" target="_blank" rel="noopener">https://docs.github.com/</a></li>
+  </ul>
+
+  <p class="muted">fastapi.tiangolo.com ezt modosítsd htmlre a szöveg maradjon ne hagyj ki belole semmit</p>
+
+</body>
+</html>
