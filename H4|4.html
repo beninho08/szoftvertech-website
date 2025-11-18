@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>H4/4 – Adatbázis terv</title>
+</head>
+<body>
+  <h1>H4/4 – Adatbázis terv</h1>
+  <p>A dokumentum az adatbázis szerkezetét és működését mutatja be.</p>
+
+  <h2>ER diagram</h2>
+  <ul>
+    <li>User: id, name, height_cm</li>
+    <li>Reservation: id, row, col, height_cm, timestamp</li>
+    <li>Seat: row, col, status, reservation_id</li>
+  </ul>
+
+  <h2>Relációs modell</h2>
+  <p>Kapcsolatok: User → Reservation → Seat</p>
+
+  <h2>Adatkezelés</h2>
+  <ul>
+    <li>Mentés: POST /reserve</li>
+    <li>Lekérdezés: GET /seats</li>
+    <li>Törlés: DELETE /reserve/{id}</li>
+  </ul>
+</body>
+</html>
