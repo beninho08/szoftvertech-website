@@ -3,26 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <title>H4/1 – Analízis modell</title>
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.65;
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #5b4b8a;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+    h2 { font-size: 1.5rem; margin-top: 1.5rem; border-bottom: 2px solid #7a65d9; padding-bottom: 0.3rem; }
+    h3 { font-size: 1.25rem; margin-top: 1rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #efeff7;
+      color: #352c55;
+      font-weight: 600;
+    }
+    ul { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .note { color: #555; font-style: italic; margin-top: 0.5rem; }
+  </style>
 </head>
 <body>
-  <h1>H4/1 – Analízis modell</h1>
+
+  <h1>🧩 H4/1 – Analízis modell</h1>
   <p>A dokumentum célja a rendszer objektumorientált szerkezetének és viselkedésének bemutatása.</p>
 
-  <h2>Osztálydiagram</h2>
+  <h2>1. Bevezetés</h2>
+  <p>Az analízis modell célja, hogy feltárja a rendszer főbb objektumait, azok kapcsolatait és viselkedését. Ez az alapja a későbbi rendszertervezésnek és implementációnak.</p>
+
+  <h2>2. Osztálydiagram (kezdeti)</h2>
+  <table>
+    <tr><th>Osztály</th><th>Attribútumok</th><th>Leírás</th></tr>
+    <tr><td>Felhasználó</td><td>id, név, email, magasság_cm</td><td>A rendszerbe regisztrált néző, aki jegyet foglalhat.</td></tr>
+    <tr><td>Foglalás</td><td>id, sor, oszlop, magasság_cm, időbélyeg</td><td>A jegyfoglalás adatai, beleértve a néző magasságát.</td></tr>
+    <tr><td>Ülés</td><td>sor, oszlop, állapot, foglalás_id</td><td>Az egyes ülőhelyek állapota és foglalási kapcsolata.</td></tr>
+    <tr><td>Terem</td><td>id, név, ülésrács</td><td>A színházterem, amely tartalmazza az ülésrácsot.</td></tr>
+  </table>
+
+  <h2>3. Kapcsolatok és asszociációk</h2>
   <ul>
-    <li><strong>Felhasználó</strong>: id, név, magasság_cm</li>
-    <li><strong>Foglalás</strong>: id, sor, oszlop, magasság_cm, időbélyeg</li>
-    <li><strong>Ülés</strong>: sor, oszlop, állapot, foglalás_id</li>
-    <li><strong>Terem</strong>: id, név, ülésrács</li>
+    <li><strong>Felhasználó → Foglalás:</strong> Egy felhasználó több foglalást is létrehozhat.</li>
+    <li><strong>Foglalás → Ülés:</strong> Minden foglalás egy konkrét üléshez kapcsolódik.</li>
+    <li><strong>Ülés → Terem:</strong> Az ülés egy adott teremhez tartozik.</li>
   </ul>
 
-  <h2>Kapcsolatok</h2>
-  <p>Felhasználó → Foglalás → Ülés → Terem</p>
+  <h2>4. Részrendszerek</h2>
+  <table>
+    <tr><th>Részrendszer</th><th>Osztályok</th></tr>
+    <tr><td>UI</td><td>Felhasználó</td></tr>
+    <tr><td>Üzleti logika</td><td>Foglalás, MagasságValidator</td></tr>
+    <tr><td>Adattárolás</td><td>Ülés, Terem</td></tr>
+  </table>
 
-  <h2>Szekvencia diagram</h2>
-  <p>Felhasználó → API → MagasságValidator → FoglalásService → Storage</p>
+  <h2>5. Dinamikus modellezés</h2>
+  <h3>5.1 Use Case kiválasztás</h3>
+  <ul>
+    <li>„Jegyfoglalás”</li>
+    <li>„Felhasználó regisztrációja”</li>
+  </ul>
 
-  <h2>Állapotdiagram</h2>
-  <p>Foglalás: Létrehozva → Elfogadva → Törölve</p>
+  <h3>5.2 Szekvencia diagram</h3>
+  <p><strong>Jegyfoglalás folyamata:</strong></p>
+  <ul>
+    <li>Felhasználó → API → MagasságValidator → FoglalásService → Storage</li>
+  </ul>
+
+  <h3>5.3 Állapotdiagram</h3>
+  <p><strong>Foglalás:</strong> Létrehozva → Elfogadva → Törölve</p>
+
+  <h2>6. Finomított osztálydiagram</h2>
+  <p>A dinamikus modellezés után pontosított osztálydiagram, amely tartalmazza:</p>
+  <ul>
+    <li>Hiányzó attribútumok és metódusok (pl. validateHeight(), reserveSeat())</li>
+    <li>Kapcsolatok, szerepek, multiplicitások</li>
+    <li>Rövid szöveges leírás minden osztályhoz</li>
+  </ul>
+
+  <h2>7. Diagramok formátuma</h2>
+  <ul>
+    <li>Ajánlott eszközök: draw.io, Lucidchart, StarUML</li>
+    <li>Formátum: PNG, JPG vagy SVG</li>
+    <li>Beillesztés: HTML-ben képként + szöveges magyarázat</li>
+  </ul>
+
+  <p class="note">A dokumentum legyen összhangban a H3 specifikációval és a Use Case diagramokkal.</p>
+
 </body>
 </html>
