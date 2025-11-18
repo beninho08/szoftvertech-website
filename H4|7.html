@@ -3,82 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <title>H4/7 – Munkanapló v1.1</title>
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.65;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2 {
+      color: #5b4b8a;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+    h2 { font-size: 1.5rem; margin-top: 1.5rem; border-bottom: 2px solid #7a65d9; padding-bottom: 0.3rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #efeff7;
+      color: #352c55;
+      font-weight: 600;
+    }
+    .note { color: #555; font-style: italic; margin-top: 0.5rem; }
+  </style>
 </head>
 <body>
-  <h1>H4/7 – Munkanapló v1.1</h1>
-  <p>A munkanapló a H4 fázisban végzett feladatokat tartalmazza, időrendi sorrendben.</p>
 
-  <table border="1" cellspacing="0" cellpadding="6">
+  <h1>📅 H4/7 – Munkanapló v1.1</h1>
+  <p>A munkanapló célja, hogy nyomon kövesse a csapattagok munkáját, feladatait és ráfordított idejét. A bejegyzések időrendi sorrendben kerülnek rögzítésre.</p>
+
+  <h2>1. Formátum</h2>
+  <p>A munkanapló HTML táblázat formátumban készült, az alábbi oszlopokkal:</p>
+  <ul>
+    <li>Dátum</li>
+    <li>Csapattag neve</li>
+    <li>Feladat leírása</li>
+    <li>Ráfordított idő (óra)</li>
+  </ul>
+
+  <h2>2. Bejegyzések</h2>
+  <table>
     <tr>
       <th>Dátum</th>
       <th>Csapattag</th>
       <th>Feladat</th>
-      <th>Ráfordított idő (óra)</th>
+      <th>Idő (óra)</th>
     </tr>
     <tr>
-      <td>2025-11-06</td>
-      <td>MB</td>
-      <td>Osztálydiagram készítése az analízis modellhez</td>
+      <td>2025-10-05</td>
+      <td>Matyi Bernát</td>
+      <td>Projektterv (H1) formázása és leadásra előkészítése</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2025-10-06</td>
+      <td>Bodnár Dániel</td>
+      <td>GitHub repo létrehozása, alap README</td>
       <td>2</td>
     </tr>
     <tr>
-      <td>2025-11-07</td>
-      <td>BD</td>
-      <td>UI mockupok és képernyőtervek elkészítése</td>
-      <td>1.5</td>
+      <td>2025-10-15</td>
+      <td>Matyi Bernát</td>
+      <td>Vízió dokumentum (H2) kidolgozása</td>
+      <td>4</td>
     </tr>
     <tr>
-      <td>2025-11-08</td>
-      <td>MB</td>
-      <td>Adatbázis ER diagram és relációs modell kidolgozása</td>
-      <td>1</td>
+      <td>2025-10-16</td>
+      <td>Bodnár Dániel</td>
+      <td>Feladatok kiosztása, mérföldkövek ütemezése</td>
+      <td>2</td>
     </tr>
     <tr>
-      <td>2025-11-09</td>
-      <td>BD</td>
-      <td>Felhasználói dokumentáció frissítése (Swagger UI képernyők)</td>
-      <td>1</td>
+      <td>2025-11-01</td>
+      <td>Matyi Bernát</td>
+      <td>Analízis modell (H4/1) osztálydiagram elkészítése</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>2025-11-02</td>
+      <td>Bodnár Dániel</td>
+      <td>Rendszerterv (H4/2) komponens-terv kidolgozása</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>2025-11-05</td>
+      <td>Mindkettő</td>
+      <td>UI terv (H4/3) mockupok készítése</td>
+      <td>6</td>
     </tr>
     <tr>
       <td>2025-11-10</td>
-      <td>MB</td>
-      <td>Szótár bővítése új technikai fogalmakkal</td>
-      <td>0.5</td>
-    </tr>
-    <tr>
-      <td>2025-11-11</td>
-      <td>BD</td>
-      <td>Rendszerterv komponenseinek részletes leírása</td>
-      <td>2</td>
+      <td>Matyi Bernát</td>
+      <td>Adatbázis terv (H4/4) ER diagram és relációs modell</td>
+      <td>5</td>
     </tr>
     <tr>
       <td>2025-11-12</td>
-      <td>MB</td>
-      <td>Szekvencia és állapotdiagramok finomítása</td>
-      <td>1.5</td>
-    </tr>
-    <tr>
-      <td>2025-11-13</td>
-      <td>BD</td>
-      <td>UI terv véglegesítése és navigációs logika dokumentálása</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>2025-11-14</td>
-      <td>MB</td>
-      <td>Adatbázis CRUD műveletek dokumentálása</td>
-      <td>1</td>
+      <td>Bodnár Dániel</td>
+      <td>Szótár (H4/5) frissítése új fogalmakkal</td>
+      <td>3</td>
     </tr>
     <tr>
       <td>2025-11-15</td>
-      <td>BD</td>
-      <td>Munkanapló összesítése és ellenőrzése</td>
-      <td>0.5</td>
+      <td>Matyi Bernát</td>
+      <td>Felhasználói dokumentáció (H4/6) frissítése</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>2025-11-18</td>
+      <td>Mindkettő</td>
+      <td>Munkanapló (H4/7) összeállítása és véglegesítése</td>
+      <td>2</td>
     </tr>
   </table>
 
-  <footer>
-    <p>© 2025 „dájnamik DUO” – H4 fázis munkanapló</p>
-  </footer>
+  <h2>3. Megjegyzések</h2>
+  <p class="note">A munkanapló folyamatosan frissül a projekt előrehaladtával. A bejegyzések segítik az oktatót és a csapatot a munka nyomon követésében.</p>
+
 </body>
 </html>
