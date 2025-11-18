@@ -184,9 +184,20 @@
     <p>© 2025 „dájnamik DUO” | <a href="#">Vissza a tetejére</a></p>
   </footer>
 
-  <script>
+    <script>
     async function loadDoc(file, title){
       try {
         const response = await fetch(file);
         if (!response.ok) throw new Error("Nem található: " + file);
-        const text = await response
+        const text = await response.text();
+        document.getElementById('content').innerHTML =
+          `<div class="card"><h2>${title}</h2><p>${text}</p></div>`;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (err) {
+        document.getElementById('content').innerHTML =
+          `<div class="card"><h2>${title}</h2><p style="color:red;">Hiba: ${err.message}</p></div>`;
+      }
+    }
+  </script>
+</body>
+</html>
