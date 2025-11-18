@@ -3,26 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <title>H4/4 – Adatbázis terv</title>
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.65;
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #5b4b8a;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+    h2 { font-size: 1.5rem; margin-top: 1.5rem; border-bottom: 2px solid #7a65d9; padding-bottom: 0.3rem; }
+    h3 { font-size: 1.25rem; margin-top: 1rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #efeff7;
+      color: #352c55;
+      font-weight: 600;
+    }
+    ul { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .note { color: #555; font-style: italic; margin-top: 0.5rem; }
+  </style>
 </head>
 <body>
-  <h1>H4/4 – Adatbázis terv</h1>
-  <p>A dokumentum az adatbázis szerkezetét és működését mutatja be.</p>
 
-  <h2>ER diagram</h2>
+  <h1>🗄️ H4/4 – Adatbázis terv</h1>
+  <p>A dokumentum célja a rendszer adatkezelési struktúrájának bemutatása, beleértve az entitásokat, relációkat, adatbázis-műveleteket és technikai megvalósítást.</p>
+
+  <h2>1. ER diagram</h2>
+  <p>Az ER diagram bemutatja az entitásokat és azok kapcsolatait. Ajánlott eszköz: draw.io, dbdiagram.io.</p>
   <ul>
-    <li>User: id, name, height_cm</li>
-    <li>Reservation: id, row, col, height_cm, timestamp</li>
-    <li>Seat: row, col, status, reservation_id</li>
+    <li><strong>Felhasználó</strong> – id, név, email, magasság_cm</li>
+    <li><strong>Foglalás</strong> – id, felhasználó_id, ülés_id, időbélyeg</li>
+    <li><strong>Ülés</strong> – id, sor, oszlop, állapot</li>
+    <li><strong>Terem</strong> – id, név</li>
+  </ul>
+  <p class="note">Kapcsolatok: Felhasználó 1:N Foglalás, Foglalás N:1 Ülés, Ülés N:1 Terem</p>
+
+  <h2>2. Relációs modell</h2>
+  <table>
+    <tr><th>Tábla</th><th>Attribútumok</th><th>Kulcsok</th></tr>
+    <tr><td>users</td><td>id (PK), name, email, height_cm</td><td>PK: id</td></tr>
+    <tr><td>reservations</td><td>id (PK), user_id (FK), seat_id (FK), timestamp</td><td>PK: id, FK: user_id, seat_id</td></tr>
+    <tr><td>seats</td><td>id (PK), row, column, status, room_id (FK)</td><td>PK: id, FK: room_id</td></tr>
+    <tr><td>rooms</td><td>id (PK), name</td><td>PK: id</td></tr>
+  </table>
+
+  <h2>3. Adatkezelési műveletek</h2>
+  <ul>
+    <li><strong>Mentés:</strong> új foglalás beszúrása a reservations táblába</li>
+    <li><strong>Lekérdezés:</strong> szabad ülések listázása adott teremben</li>
+    <li><strong>Módosítás:</strong> ülés státuszának frissítése foglalás után</li>
+    <li><strong>Törlés:</strong> foglalás visszavonása → ülés státusz visszaállítása</li>
   </ul>
 
-  <h2>Relációs modell</h2>
-  <p>Kapcsolatok: User → Reservation → Seat</p>
+  <h2>4. Adatbázis-komponensek</h2>
+  <table>
+    <tr><th>Osztály</th><th>Felelősség</th></tr>
+    <tr><td>UserDAO</td><td>Felhasználói adatok kezelése</td></tr>
+    <tr><td>ReservationRepository</td><td>Foglalások mentése, lekérdezése</td></tr>
+    <tr><td>SeatManager</td><td>Ülésállapotok frissítése</td></tr>
+    <tr><td>RoomService</td><td>Terem konfigurációk kezelése</td></tr>
+  </table>
 
-  <h2>Adatkezelés</h2>
+  <h2>5. Technikai megvalósítás</h2>
   <ul>
-    <li>Mentés: POST /reserve</li>
-    <li>Lekérdezés: GET /seats</li>
-    <li>Törlés: DELETE /reserve/{id}</li>
+    <li><strong>Adatbázis:</strong> SQLite (prototípushoz), PostgreSQL (éles verzióhoz ajánlott)</li>
+    <li><strong>ORM:</strong> SQLAlchemy</li>
+    <li><strong>Migráció:</strong> Alembic</li>
+    <li><strong>Kapcsolódás:</strong> FastAPI dependency injection</li>
   </ul>
+
+  <p class="note">Az adatbázis-terv legyen összhangban az analízis modellel és a rendszertervvel.</p>
+
 </body>
 </html>
