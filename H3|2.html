@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>H3/2 – SRS (Szoftverkövetelmény-specifikáció)</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 2rem; line-height: 1.6; color: #222; }
+    h1, h2, h3 { margin: 0.4rem 0; }
+    hr { margin: 1.5rem 0; }
+    table { border-collapse: collapse; width: 100%; margin: 0.5rem 0 1rem; }
+    th, td { border: 1px solid #ddd; padding: 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #f6f6f6; }
+    code { background: #f6f6f6; padding: 0.1rem 0.25rem; border-radius: 3px; }
+    .ref a { color: #0a66c2; text-decoration: none; }
+    .ref a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>H3/2 – SRS (Szoftverkövetelmény-specifikáció)</h1>
+    <p><strong>Projekt:</strong> Magasság-alapú színházi jegyfoglaló rendszer (FastAPI)</p>
+  </header>
+
+  <hr />
+
+  <section>
+    <h2>1. Bevezetés</h2>
+    <p><strong>Cél:</strong> A rendszer követelményeinek definiálása.</p>
+    <p><strong>Hatókör:</strong> FastAPI alapú backend, amely csak akkor enged foglalást, ha az előtte ülők magassága nem akadályozza a rálátást. A rendszer Swagger UI felületen tesztelhető.</p>
+  </section>
+
+  <section>
+    <h2>2. Általános leírás</h2>
+    <table>
+      <thead>
+        <tr><th>Tétel</th><th>Leírás</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Aktorok</strong></td><td>Jegyvásárló (néző), Admin, Rendszer (API)</td></tr>
+        <tr><td><strong>Környezet</strong></td><td>Python 3.11+, FastAPI, Swagger UI, böngésző</td></tr>
+        <tr><td><strong>Fő funkciók</strong></td><td>Üléslista, foglalás magasság alapján, visszajelzés</td></tr>
+        <tr><td><strong>Felület</strong></td><td>REST API</td></tr>
+        <tr><td><strong>Korlátok</strong></td><td>Kezdő verzióban csak egy teremmodell, nincs hitelesítés</td></tr>
+        <tr><td><strong>Feltételezések</strong></td><td>Valós magasság megadása, egyértelmű üléskoordináta</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>3. Funkcionális követelmények</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Funkció</th><th>Leírás</th><th>Bemenet</th><th>Kimenet</th><th>Előfeltétel</th><th>Utófeltétel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>FR-01</strong></td><td>Üléslista</td><td>Szabad/foglalt helyek lekérése</td><td>–</td><td>JSON lista</td><td>Teremmodell betöltve</td><td>–</td>
+        </tr>
+        <tr>
+          <td><strong>FR-02</strong></td><td>Foglalás kezdeményezése</td><td>Felhasználó megadja sor, oszlop, magasság</td><td>sar, oszlop, magasság_cm</td><td>201 vagy 409</td><td>Ülés létezik</td><td>Foglalás rögzül vagy elutasítva</td>
+        </tr>
+        <tr>
+          <td><strong>FR-03</strong></td><td>Magasságlogika ellenőrzése</td><td>Ellenőrzi, hogy előtte ül-e magasabb</td><td>sor, oszlop, magasság_cm</td><td>true/false + indok</td><td>–</td><td>Foglalás elutasít vagy enged</td>
+        </tr>
+        <tr>
+          <td><strong>FR-04</strong></td><td>Foglalás törlése</td><td>Felhasználó/admin törli saját foglalását</td><td>id</td><td>204 / 404</td><td>Foglalás létezik</td><td>Ülés felszabadul</td>
+        </tr>
+        <tr>
+          <td><strong>FR-05</strong></td><td>Hibakezelés</td><td>Egységes API hibaformátum</td><td>–</td><td>JSON error objektum</td><td>–</td><td>–</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>4. Use Case táblázat</h2>
+    <table>
+      <thead>
+        <tr><th>Use Case</th><th>Aktor</th><th>Cél</th><th>Fő folyamat</th><th>Alternatív / Hibaág</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>UC-01</strong>: Ülések megtekintése</td><td>Jegyvásárló</td><td>Információ a foglaltságról</td><td><code>GET /seats</code> → lista</td><td>–</td></tr>
+        <tr><td><strong>UC-02</strong>: Foglalás magassággal</td><td>Jegyvásárló</td><td>Foglalás indítása</td><td><code>POST /reserve</code> → magasság-ellenőrzés → 201</td><td>→ 409, ha előtte magasabb ülő van</td></tr>
+        <tr><td><strong>UC-03</strong>: Foglalás törlése</td><td>Jegyvásárló/Admin</td><td>Foglalás eltávolítása</td><td><code>DELETE /reserve/{id}</code> → 204</td><td>→ 404, ha nincs ilyen foglalás</td></tr>
+        <tr><td><strong>UC-04</strong>: Ülésrács karbantartás</td><td>Admin</td><td>Terem betöltése</td><td>Ülésadatok publikálása</td><td>→ Hibás formátum → 400</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>5. Nem funkcionális követelmények</h2>
+    <ul>
+      <li><strong>Teljesítmény:</strong> Átlagos válaszidő &lt; 150 ms Swagger alatt</li>
+      <li><strong>Megbízhatóság:</strong> Hibás input → stabil hibaüzenet (422, 409, 404)</li>
+      <li><strong>Használhatóság:</strong> Swagger UI-ból minden funkció kipróbálható</li>
+      <li><strong>Tesztelhetőség:</strong> Magasságlogika külön pytest egységtesztben lefedve</li>
+      <li><strong>Olvashatóság:</strong> Moduláris felépítés – külön route, logika, storage</li>
+      <li><strong>Kódminőség:</strong> ruff, black betartása kötelező</li>
+      <li><strong>Biztonság:</strong> H3-ban nincs auth, csak inputvalidáció</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Korlátok és függőségek</h2>
+    <table>
+      <thead><tr><th>Típus</th><th>Leírás</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Hardver</strong></td><td>Lokális fejlesztői gép elegendő</td></tr>
+        <tr><td><strong>Szoftver</strong></td><td>Python 3.11+, Uvicorn könyvtár szükséges</td></tr>
+        <tr><td><strong>Külső függőség</strong></td><td>Swagger rendereléshez modern böngésző</td></tr>
+        <tr><td><strong>Funkcionális korlát</strong></td><td>Egy terem modell, nincs felhasználónév/jelszó rendszer</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>7. Feltételezések és jövőbeli fejlesztések</h2>
+    <table>
+      <thead><tr><th>Típus</th><th>Leírás</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Feltételezés</strong></td><td>A nézők valós magasságot adnak meg</td></tr>
+        <tr><td><strong>Feltételezés</strong></td><td>A terem helyadatai strukturáltan fel vannak töltve</td></tr>
+        <tr><td><strong>Jövőbeli funkció</strong></td><td>Több terem, magaslatmodell (lejtés), AI helyajánló</td></tr>
+        <tr><td><strong>Jövőbeli funkció</strong></td><td>Hitelesített profilok, jegykód generálás, QR check-in</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="ref">
+    <h2>8. Hivatkozások</h2>
+    <ul>
+      <li><a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener">FastAPI dokumentáció</a></li>
+      <li><a href="https://swagger.io/tools/swagger-ui/" target="_blank" rel="noopener">Swagger UI</a></li>
+      <li><a href="https://docs.pytest.org" target="_blank" rel="noopener">pytest</a></li>
+      <li>GitHub Actions – CI dokumentáció</li>
+    </ul>
+  </section>
+
+</body>
+</html>
