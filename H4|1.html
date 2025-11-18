@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>H4/1 – Analízis modell</title>
+</head>
+<body>
+  <h1>H4/1 – Analízis modell</h1>
+  <p>A dokumentum célja a rendszer objektumorientált szerkezetének és viselkedésének bemutatása.</p>
+
+  <h2>Osztálydiagram</h2>
+  <ul>
+    <li><strong>Felhasználó</strong>: id, név, magasság_cm</li>
+    <li><strong>Foglalás</strong>: id, sor, oszlop, magasság_cm, időbélyeg</li>
+    <li><strong>Ülés</strong>: sor, oszlop, állapot, foglalás_id</li>
+    <li><strong>Terem</strong>: id, név, ülésrács</li>
+  </ul>
+
+  <h2>Kapcsolatok</h2>
+  <p>Felhasználó → Foglalás → Ülés → Terem</p>
+
+  <h2>Szekvencia diagram</h2>
+  <p>Felhasználó → API → MagasságValidator → FoglalásService → Storage</p>
+
+  <h2>Állapotdiagram</h2>
+  <p>Foglalás: Létrehozva → Elfogadva → Törölve</p>
+</body>
+</html>
