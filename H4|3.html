@@ -3,24 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <title>H4/3 – UI terv</title>
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.65;
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #5b4b8a;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+    h2 { font-size: 1.5rem; margin-top: 1.5rem; border-bottom: 2px solid #7a65d9; padding-bottom: 0.3rem; }
+    h3 { font-size: 1.25rem; margin-top: 1rem; }
+    ul { margin: 0.5rem 0 0.75rem 1.25rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #efeff7;
+      color: #352c55;
+      font-weight: 600;
+    }
+    .note { color: #555; font-style: italic; margin-top: 0.5rem; }
+  </style>
 </head>
 <body>
-  <h1>H4/3 – UI terv</h1>
-  <p>A dokumentum bemutatja a rendszer vizuális felépítését.</p>
 
-  <h2>Képernyők</h2>
+  <h1>🖥️ H4/3 – Felhasználói felület terve</h1>
+  <p>A dokumentum célja a rendszer vizuális felépítésének bemutatása, a felhasználói élmény és navigációs logika megtervezése.</p>
+
+  <h2>1. Fő képernyők vázlatai</h2>
   <ul>
-    <li>Főoldal: projekt bemutatása</li>
-    <li>Ülésrács: vizuális foglaltság</li>
-    <li>Foglalás: input mezők</li>
-    <li>Visszajelzés: siker / hiba</li>
+    <li><strong>Kezdőlap:</strong> Projekt bemutatása, navigációs menü</li>
+    <li><strong>Jegyfoglalás oldal:</strong> Terem vizualizáció, ülésválasztás, magasság megadása</li>
+    <li><strong>Profil oldal:</strong> Felhasználói adatok, foglalások listája</li>
+    <li><strong>Admin felület:</strong> Terem konfiguráció, foglaltság kezelése</li>
+  </ul>
+  <p class="note">A mockupokat ajánlott draw.io, Figma vagy képernyőképek formájában csatolni.</p>
+
+  <h2>2. Navigációs logika</h2>
+  <p>A felhasználó az alábbi módon navigálhat:</p>
+  <ul>
+    <li>Kezdőlap → Jegyfoglalás</li>
+    <li>Jegyfoglalás → Profil oldal (foglalás után)</li>
+    <li>Admin → Terem szerkesztés / foglaltság megtekintés</li>
   </ul>
 
-  <h2>UI elemek</h2>
+  <h2>3. UI elemek</h2>
+  <table>
+    <tr><th>Elem</th><th>Leírás</th></tr>
+    <tr><td>Gombok</td><td>„Foglalás”, „Mégse”, „Mentés”, „Bejelentkezés” – jól látható, kontrasztos színek</td></tr>
+    <tr><td>Űrlapok</td><td>Magasság megadása, név, email – validációval</td></tr>
+    <tr><td>Menü</td><td>Fő navigáció: Kezdőlap, Foglalás, Profil, Admin</td></tr>
+    <tr><td>Terem vizualizáció</td><td>Ülésrács színezve: szabad, foglalt, ajánlott</td></tr>
+  </table>
+
+  <h2>4. Felhasználói élmény szempontok</h2>
   <ul>
-    <li>Gombok: Foglalás, Törlés</li>
-    <li>Mezők: sor, oszlop, magasság_cm</li>
-    <li>Státusz: 201, 409, 404</li>
+    <li>Reszponzív design – mobilon is jól használható</li>
+    <li>Egyszerű, intuitív felület</li>
+    <li>Visszajelzések: sikeres foglalás, hibák (pl. „Előtted magasabb néző ülne”)</li>
   </ul>
+
+  <h2>5. Színek és stílus</h2>
+  <ul>
+    <li>Alapszín: lila (#5b4b8a) – kiemelésekhez</li>
+    <li>Háttér: világos (#f9f9fb)</li>
+    <li>Betűtípus: Inter / Segoe UI</li>
+    <li>Árnyékok, lekerekített sarkok – modern megjelenés</li>
+  </ul>
+
+  <h2>6. Példák és javaslatok</h2>
+  <ul>
+    <li>Foglalás gomb csak akkor aktív, ha magasság meg van adva</li>
+    <li>Ülésre kattintva tooltip jelenik meg: „Előtted ülő magasság: 185 cm”</li>
+    <li>Admin felületen vizuális terem szerkesztő (drag & drop)</li>
+  </ul>
+
+  <p class="note">A UI terv legyen összhangban az analízis modellel és a rendszertervvel.</p>
+
 </body>
 </html>
