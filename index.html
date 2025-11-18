@@ -3,145 +3,178 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎭 "dájnamik" DUO – Színházi jegyfoglaló</title>
+  <title>🎭 "dájnamik" DUO – Színházi jegyfoglaló rendszer</title>
   <style>
     :root {
       --accent: #5b4b8a;
-      --accent-light: #6f5bd1;
-      --muted: #ccc;
-      --bg: linear-gradient(135deg,#f3f2fb,#ffffff);
+      --accent-light: #7a65d9;
+      --bg: linear-gradient(135deg,#fdfdfd,#f3f2fb);
       --card-bg: #fff;
+      --text: #333;
+      --muted: #888;
       --maxw: 1100px;
     }
-    * { box-sizing: border-box; }
+
+    * { box-sizing: border-box; margin:0; padding:0; }
+
     body {
-      margin: 0;
       font-family: "Inter", "Segoe UI", Roboto, sans-serif;
       background: var(--bg);
-      color: #222;
+      color: var(--text);
+      line-height: 1.6;
     }
+
     header {
       background: linear-gradient(90deg, var(--accent), var(--accent-light));
       color: #fff;
       text-align: center;
       padding: 3rem 1rem 2rem;
-      box-shadow: 0 6px 18px rgba(91,75,138,0.12);
+      box-shadow: 0 6px 20px rgba(91,75,138,0.25);
     }
+
     header h1 {
-      margin: 0;
-      font-size: 2.2rem;
+      font-size: 2.6rem;
+      font-weight: 700;
       letter-spacing: 1px;
     }
+
     header p {
-      margin-top: 0.5rem;
-      font-size: 1rem;
-      opacity: 0.85;
+      margin-top: 0.8rem;
+      font-size: 1.2rem;
+      opacity: 0.9;
     }
+
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      margin: 1.5rem 0;
+      margin: 2rem auto;
+      max-width: var(--maxw);
+      padding: 0 1rem;
     }
+
     nav a {
-      padding: 0.8rem 1.5rem;
+      padding: 0.9rem 1.6rem;
       background: var(--accent);
       color: #fff;
-      border-radius: 10px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
-      transition: 0.3s;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(91,75,138,0.25);
     }
+
     nav a:hover {
       background: var(--accent-light);
+      transform: translateY(-2px);
     }
+
     main {
       max-width: var(--maxw);
       margin: 2rem auto;
-      padding: 1rem;
+      padding: 0 1rem;
     }
+
     .card {
       background: var(--card-bg);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 2rem;
-      box-shadow: 0 6px 20px rgba(30,30,60,0.06);
+      box-shadow: 0 8px 24px rgba(30,30,60,0.08);
       margin-bottom: 2rem;
+      transition: transform 0.2s ease;
     }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
     .card h2 {
       color: var(--accent);
-      margin-top: 0;
+      margin-bottom: 1rem;
       border-bottom: 2px solid var(--accent-light);
       padding-bottom: 0.5rem;
+      font-size: 1.6rem;
     }
+
     .card p {
-      line-height: 1.6;
       color: #444;
+      white-space: pre-line;
+      font-size: 1.05rem;
     }
-    .btn-container {
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-    .btn {
-      background: var(--accent);
-      color: #fff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-      display: inline-block;
-    }
-    .btn:hover {
-      background: var(--accent-light);
-    }
+
     footer {
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem 1rem;
       background: #111;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       margin-top: 3rem;
     }
+
     footer a {
       color: var(--accent-light);
       text-decoration: none;
     }
+
     @media (max-width: 880px){
       nav { flex-direction: column; gap: 0.75rem; }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>🎭 Magasság-alapú Színházi Jegyfoglaló</h1>
-    <p>"dájnamik DUO" – Matyi Bernát & Bodnár Dániel | Szoftvertechnológia projekt</p>
+    <h1>🎭 Magasság-alapú Színházi Jegyfoglaló Rendszer</h1>
+    <p>"dájnamik DUO" – Matyi Bernát & Bodnár Dániel | Szoftvertechnológia projekt – 2025</p>
   </header>
+
   <nav>
-    <a href="H1.html">📘 H1 – Projektterv</a>
-    <a href="H2.html">📗 H2 – Vízió</a>
-    <a href="H3.html">📙 H3 – Rendszerterv</a>
+    <!-- H1 és H2 -->
+    <a href="#" onclick="loadDoc('H1.txt','📘 H1 – Projektterv')">📘 H1 – Projektterv</a>
+    <a href="#" onclick="loadDoc('H2.txt','📗 H2 – Vízió dokumentum')">📗 H2 – Vízió dokumentum</a>
+
+    <!-- H3 -->
+    <a href="#" onclick="loadDoc('H3-1.txt','📙 H3/1 – Projekt áttekintés')">📙 H3/1 – Projekt áttekintés</a>
+    <a href="#" onclick="loadDoc('H3-2.txt','📙 H3/2 – SRS specifikáció')">📙 H3/2 – SRS specifikáció</a>
+    <a href="#" onclick="loadDoc('H3-3.txt','📙 H3/3 – Szótár')">📙 H3/3 – Szótár</a>
+    <a href="#" onclick="loadDoc('H3-4.txt','📙 H3/4 – Felhasználói dokumentáció')">📙 H3/4 – Felhasználói dokumentáció</a>
+
+    <!-- H4 -->
+    <a href="#" onclick="loadDoc('H4-1.txt','🧠 H4/1 – Analízis modell')">🧠 H4/1 – Analízis modell</a>
+    <a href="#" onclick="loadDoc('H4-2.txt','🧩 H4/2 – Rendszerterv')">🧩 H4/2 – Rendszerterv</a>
+    <a href="#" onclick="loadDoc('H4-3.txt','🖥️ H4/3 – UI terv')">🖥️ H4/3 – UI terv</a>
+    <a href="#" onclick="loadDoc('H4-4.txt','🗄️ H4/4 – Adatbázis terv')">🗄️ H4/4 – Adatbázis terv</a>
+    <a href="#" onclick="loadDoc('H4-5.txt','📘 H4/5 – Szótár v1.1')">📘 H4/5 – Szótár v1.1</a>
+    <a href="#" onclick="loadDoc('H4-6.txt','📙 H4/6 – Felhasználói dokumentáció')">📙 H4/6 – Felhasználói dokumentáció</a>
+    <a href="#" onclick="loadDoc('H4-7.txt','📅 H4/7 – Munkanapló')">📅 H4/7 – Munkanapló</a>
   </nav>
-  <main>
+
+  <main id="content">
     <div class="card">
-      <h2>Üdvözöl a "dájnamik"DUO projektoldala!</h2>
-      <p>
-        Ez az oldal bemutatja a <strong>Magasság-alapú színházi jegyfoglaló rendszer</strong> fejlesztését.
-        A célunk, hogy a nézők kényelmesen, igazságosan, és élményszerűen foglalhassanak helyet a színházban —
-        figyelembe véve az ülésrendet és a nézők magasságát.
-      </p>
-    </div>
-    <div class="card">
-      <h2>Főbb funkciók</h2>
-      <ul>
-        <li>Magasság-alapú ülésellenőrzés foglaláskor</li>
-        <li>FastAPI alapú backend</li>
-        <li>Swagger dokumentáció és validáció</li>
-        <li>Egyszerű, letisztult frontend</li>
-      </ul>
+      <h2>Kezdőlap</h2>
+      <p>Üdvözlünk a projektoldalon! Válassz dokumentumot a fenti menüből.</p>
     </div>
   </main>
+
   <footer>
-    <p>© 2025  | <a href="https://github.com/beninho08/szoftvertech-projekt" target="_blank">GitHub repó</a></p>
+    <p>© 2025 „dájnamik DUO” | <a href="#">Vissza a tetejére</a></p>
   </footer>
+
+  <script>
+    async function loadDoc(file, title){
+      try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error("Nem található: " + file);
+        const text = await response.text();
+        document.getElementById('content').innerHTML =
+          `<div class="card"><h2>${title}</h2><p>${text}</p></div>`;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (err) {
+        document.getElementById('content').innerHTML =
+          `<div class="card"><h2>${title}</h2><p style="color:red;">Hiba: ${err.message}</p></div>`;
+      }
+    }
+  </script>
 </body>
 </html>
