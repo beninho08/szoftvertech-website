@@ -1,59 +1,138 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>H2 — Vízió dokumentum</title>
+ 🎭 H2 – Vízió dokumentum  
+*Projekt:* Magasság-alapú színházi jegyfoglaló rendszer (FastAPI)  
+*Csapat:* "dájnamik" DUO – Matyi Bernát, Bodnár Dániel  
+*Dátum:* 2025. október
 
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+---
 
-  <style>
-    :root{--accent:#5b4b8a;--bg:linear-gradient(120deg,#fff7fb,#ffffff);--maxw:960px}
-    body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#222}
-    header{background:linear-gradient(90deg,#6f5bd1,var(--accent));color:white;padding:20px;text-align:center}
-    header h1{margin:0;font-size:2.2rem}
-    main{max-width:var(--maxw);margin:28px auto;padding:16px}
-    .card{background:white;padding:20px;border-radius:12px;box-shadow:0 6px 20px rgba(30,30,60,0.06)}
-    #md{min-height:60vh}
-    pre{background:#0b1020;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto}
-    a.button{display:inline-block;margin:10px 6px;padding:8px 12px;background:#6f5bd1;color:white;border-radius:8px;text-decoration:none}
-  </style>
-</head>
-<body>
-  <header>
-    <h1>H2 — Vízió dokumentum</h1>
-    <p style="opacity:0.9;margin:6px 0">Magasság-alapú színházi jegyfoglaló — teljes leírás</p>
-  </header>
+## 1. Leadandó összefoglaló
 
-  <main>
-    <div class="card">
-      <div style="margin-bottom:10px">
-        <a class="button" href="index.html">⬅ Vissza a főoldalra</a>
-        <a class="button" href="H1.html">H1</a>
-        <a class="button" href="H3.html">H3</a>
-      </div>
+| Dokumentum | Állapot | Leírás |
+|------------|--------|--------|
+|  Vízió dokumentum | Kész | A projekt céljának, problémájának és funkcióinak meghatározása |
+|  Projektterv frissítve | H1 alapján rendezve | Mérföldkövek, szerepek, FastAPI technológia rögzítve |
+|  Munkanapló | Elindítva | Nyomon követi a csapattagok munkáját – munkanaplo.html |
 
-      <div id="md">Betöltés…</div>
-    </div>
-  </main>
+---
 
-  <script>
-    const RAW_BASE = "https://raw.githubusercontent.com/beninho08/szoftvertech-projekt/main/";
-    async function load(fname){
-      try {
-        const r = await fetch(RAW_BASE + fname);
-        if(!r.ok) throw new Error('HTTP ' + r.status);
-        const txt = await r.text();
-        const html = marked.parse(txt, {gfm:true,breaks:true});
-        document.getElementById('md').innerHTML = html;
-        document.querySelectorAll('pre code').forEach((el)=>hljs.highlightElement(el));
-      } catch(e) {
-        document.getElementById('md').innerHTML = `<h2>Hiba a fájl betöltésekor</h2><p>${e.message}</p><p>Próbáld meg közvetlenül a repo raw URL-t: <code>${RAW_BASE+fname}</code></p>`;
-      }
-    }
-    load('H2.md');
-  </script>
-</body>
-</html>
+## 2. Vízió dokumentum
+
+### 2.1 Címlap
+
+| Mező | Tartalom |
+|------|---------|
+| *Projekt címe* | Magasság-alapú színházi jegyfoglaló rendszer |
+| *Csapat neve* | "dájnamik" DUO |
+| *Tantárgy* | Szoftvertechnológia |
+| *Oktató* | Jlidi Ali |
+| *Dátum* | 2025. október |
+
+---
+
+### 2.2 Bevezetés
+
+A projekt célja egy olyan *modern, API-alapú jegyfoglaló rendszer* készítése színházak számára, amely *figyelembe veszi a nézők magasságát a foglalás során*. A rendszer fő célja, hogy *minimalizálja a nézői élményt rontó helyzeteket*, amikor *egy magasabb ember ül egy alacsonyabb elé*, ezzel kitakarva a színpadot.
+
+Az API *FastAPI technológiával készül*, *Swagger dokumentációval* és *valós validációs logikával*.
+
+---
+
+### 2.3 Probléma megfogalmazása
+
+*Hagyományos jegyvásárlási rendszerek* kizárólag helyfoglalás alapján működnek. *Nem veszik figyelembe a néző fizikai adottságait*, így *gyakori felhasználói panasz*, hogy a látótér korlátozott egy *előtte ülő magasabb néző miatt*.
+
+*Jelenlegi problémák:*
+- Helyfoglalás *közömbös a látási élményre*
+- Nincs *előzetes vizuális vagy magasság-alapú ellenőrzés*
+- Felhasználók *szubjektív frusztrációja*, negatív élmény
+
+*A mi rendszerünk célja:*
+→ *Automatikus ellenőrzés foglaláskor*: csak akkor engedélyez a rendszer egy helyet, ha *az előtte lévő nézők magassága nem haladja meg a kérelmezőét + egy tolerancia értéket*.
+
+---
+
+### 2.4 A termék helye a piacon
+
+| Szempont | Hagyományos rendszerek | *A mi rendszerünk* |
+|----------|----------------------|----------------------|
+| Foglalási logika | Csak ülés azonosító alapján | *Magasság + sor pozíció alapján döntés* |
+| Felhasználói élmény | Statikus | *Adaptív, személyre szabott* |
+| Előny | Gyors foglalás | *Minőségi nézői élmény* (látótér optimalizálva) |
+| Innovációs szint | Standard jegykezelés | *Új jegyfoglalási logika – egyedi értékajánlat* |
+
+---
+
+### 2.5 Felhasználói környezet
+
+| Felhasználó | Jellemzők | Elvárás |
+|-------------|----------|--------|
+| *Jegyvásárló* | Magasságát megadja | A rendszer igazságos ülőhelyet ajánl |
+| *Rendszer admin (színház)* | Feltölti a sorok ülésrendjét és foglaltságát | Átlátható foglalási struktúra |
+| *Oktató / értékelő* | GitHubon nézi meg a kódot és a dokumentációt | *Átlátható logika + tiszta API* |
+
+---
+
+### 2.6 A termék előnyei
+
+| Érintett | Előny |
+|----------|------|
+| *Nézők* | Jobb látótér, kevesebb frusztráció |
+| *Színházak* | *Innovatív jegyértékesítés → marketing előny* |
+| *Oktató / Bíráló* | Egyedi projektötlet, átgondolt logika |
+
+---
+
+### 2.7 Feltételezések és függőségek
+
+| Típus | Megnevezés |
+|-------|-----------|
+| Feltételezés | A felhasználó megadja a magasságát foglaláskor |
+| Feltételezés | A színház ülésadatai előre fel vannak töltve |
+| Függőség | FastAPI + Python 3.11 futtatási környezet |
+| Függőség | Swagger UI a bemutatáshoz elérhető marad |
+
+---
+
+### 2.8 A termék fő funkciói
+
+| Prioritás | Funkció | Rövid leírás |
+|----------|--------|-------------|
+| *Kötelező* | /seats lekérdezés | Elérhető férőhelyek visszaadása |
+| *Kötelező* | /reserve (POST) | Foglalás *magasságellenőrzéssel* |
+| *Kötelező* | Magasság-ellenőrző logika | Ha előtte ül *magasabb*, foglalás *elutasítva* |
+| Ajánlott | Hibakezelés egységes JSON válaszokkal |
+| Jó ha van | *Javaslat*: alternatív ülőhely ajánlása elutasítás után |
+
+---
+
+### 2.9 Minőségi elvárások
+
+| Szempont | Elvárás |
+|----------|--------|
+| Teljesítmény | Lokális környezetben válaszidő <150 ms |
+| Felhasználói élmény | Egyértelmű visszajelzés: „A választott ülés előtt magasabb néző ülne” |
+| Kódminőség | PEP8, black, ruff – egységes stílus |
+| Tesztelhetőség | pytest – magasságlogika külön tesztelve |
+| Dokumentáció | Swagger UI + README alapján futtatható |
+
+---
+
+### 2.10 Kockázati lista
+
+| Kockázat | Valószínűség | Hatás | Megoldás |
+|----------|------------|-------|---------|
+| Magasságlogika félreértése | Közepes | Közepes | Egyszerű szabály: „előtte levő sorok ellenőrzése” |
+| Időkeret szűkössége H3/4 előtt | Közepes | Magas | Egyszerű CRUD + validáció előbb, algoritmus később |
+---
+
+### 2.11 Szótár
+
+| Fogalom | Definíció |
+|--------|-----------|
+| *Sor / Oszlop* | A színházi ülőhelyek azonosítására szolgáló koordináta |
+| *Foglalás* | Ülőhely + magassági adat rögzítése |
+| *Magasság-limit* | A választott hely elé eső sorokban lévő nézők magasságának maximuma |
+| *API* | FastAPI alapú végpontok rendszere |
+| *Swagger UI* | Automatikus dokumentáció a teszteléshez |
+
+---
