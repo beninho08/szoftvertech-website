@@ -3,27 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <title>H4/2 – Rendszerterv</title>
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.65;
+      max-width: 1100px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #5b4b8a;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+    h2 { font-size: 1.5rem; margin-top: 1.5rem; border-bottom: 2px solid #7a65d9; padding-bottom: 0.3rem; }
+    h3 { font-size: 1.25rem; margin-top: 1rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #efeff7;
+      color: #352c55;
+      font-weight: 600;
+    }
+    ul { margin: 0.5rem 0 0.75rem 1.25rem; }
+    .note { color: #555; font-style: italic; margin-top: 0.5rem; }
+  </style>
 </head>
 <body>
-  <h1>H4/2 – Rendszerterv</h1>
-  <p>A dokumentum a rendszer architektúráját és komponenseit mutatja be.</p>
 
-  <h2>Architektúra</h2>
+  <h1>🧩 H4/2 – Rendszerterv</h1>
+  <p>A dokumentum célja a rendszer műszaki megvalósításának részletes bemutatása, beleértve az architektúrát, komponenseket, technológiákat és interfészeket.</p>
+
+  <h2>1. Bevezetés</h2>
+  <p>A rendszerterv a H3-ban definiált követelmények alapján készült. Célja, hogy a fejlesztők számára egyértelmű irányt adjon a megvalósításhoz. Hivatkozás: <em>H3 – SRS dokumentum</em>.</p>
+
+  <h2>2. Architektúra áttekintés</h2>
+  <p>A rendszer réteges felépítésű, amely biztosítja a moduláris és karbantartható struktúrát.</p>
+  <table>
+    <tr><th>Réteg</th><th>Leírás</th></tr>
+    <tr><td>Megjelenítési réteg (UI)</td><td>Felhasználói felület, amely kommunikál az API-val. Pl. React, HTML/CSS.</td></tr>
+    <tr><td>Alkalmazási réteg</td><td>Kontrollerek, végpontok, amelyek fogadják a kéréseket és továbbítják a logikának.</td></tr>
+    <tr><td>Üzleti logika réteg</td><td>Entitások, szabályok, például magasságellenőrzés, foglaláskezelés.</td></tr>
+    <tr><td>Adatkezelési réteg</td><td>Adatbázis-hozzáférés, ORM, DAO-k, pl. SQLAlchemy.</td></tr>
+  </table>
+
+  <h2>3. Komponens-terv</h2>
+  <table>
+    <tr><th>Komponens</th><th>Felelősség</th></tr>
+    <tr><td>FelhasználóController</td><td>Regisztráció, bejelentkezés, profilkezelés</td></tr>
+    <tr><td>FoglalásService</td><td>Foglalások kezelése, magasságellenőrzés</td></tr>
+    <tr><td>MagasságValidator</td><td>Ellenőrzi, hogy a választott ülés előtt ne üljön magasabb néző</td></tr>
+    <tr><td>ÜlésRepository</td><td>Ülésadatok lekérdezése és módosítása</td></tr>
+    <tr><td>TeremManager</td><td>Terem konfigurációk kezelése</td></tr>
+  </table>
+
+  <h2>4. Modulok közötti kommunikáció</h2>
+  <p>A modulok REST API-n keresztül kommunikálnak. A fő adatáramlás:</p>
   <ul>
-    <li>UI réteg: Swagger, frontend</li>
-    <li>Controller réteg: ReservationController</li>
-    <li>Logika réteg: HeightValidator, SeatService</li>
-    <li>Storage réteg: SQLite, Repository</li>
+    <li>UI → API → Service → Repository → Adatbázis</li>
+    <li>Foglalás során: UI → /reserve → FoglalásService → MagasságValidator → ÜlésRepository</li>
   </ul>
 
-  <h2>Komponensek</h2>
+  <h2>5. Tervezési minták</h2>
   <ul>
-    <li>SeatService: ülésállapot lekérése</li>
-    <li>HeightValidator: magasságlogika</li>
-    <li>ReservationController: API végpontok</li>
+    <li><strong>MVC:</strong> Model–View–Controller elválasztás</li>
+    <li><strong>Singleton:</strong> MagasságValidator példányosítása</li>
+    <li><strong>Repository:</strong> Adatbázis műveletek elválasztása a logikától</li>
   </ul>
 
-  <h2>Technológia</h2>
-  <p>Python 3.11, FastAPI, SQLite, Swagger UI, pytest</p>
+  <h2>6. Technológiai környezet</h2>
+  <table>
+    <tr><th>Elem</th><th>Technológia</th></tr>
+    <tr><td>Backend</td><td>Python 3.11 + FastAPI</td></tr>
+    <tr><td>Frontend</td><td>HTML/CSS vagy React (opcionális)</td></tr>
+    <tr><td>Adatbázis</td><td>SQLite (prototípushoz)</td></tr>
+    <tr><td>Tesztelés</td><td>pytest</td></tr>
+    <tr><td>CI/CD</td><td>GitHub Actions</td></tr>
+  </table>
+
+  <h2>7. Külső interfészek</h2>
+  <ul>
+    <li>Swagger UI – automatikus API dokumentáció</li>
+    <li>GitHub – verziókezelés, issue tracking</li>
+    <li>JSON API válaszok – egységes hibakezelés</li>
+  </ul>
+
+  <h2>8. Korlátozások és feltételezések</h2>
+  <ul>
+    <li>A felhasználó megadja a magasságát foglaláskor</li>
+    <li>A színház ülésadatai előre fel vannak töltve</li>
+    <li>A rendszer lokálisan futtatható bemutató céljából</li>
+  </ul>
+
+  <p class="note">A rendszerterv legyen összhangban az analízis modellel és a H3 specifikációval.</p>
+
 </body>
 </html>
