@@ -3,16 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>H4/5 – Szótár v1.1</title>
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.65;
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2 {
+      color: #5b4b8a;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+    h2 { font-size: 1.5rem; margin-top: 1.5rem; border-bottom: 2px solid #7a65d9; padding-bottom: 0.3rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #efeff7;
+      color: #352c55;
+      font-weight: 600;
+    }
+    .note { color: #555; font-style: italic; margin-top: 0.5rem; }
+  </style>
 </head>
 <body>
-  <h1>H4/5 – Szótár v1.1</h1>
-  <table border="1">
+
+  <h1>📘 H4/5 – Szótár v1.1</h1>
+  <p>A dokumentum célja a H3-ban megkezdett szótár frissítése és kiegészítése a H4-ben bevezetett új technikai fogalmakkal.</p>
+
+  <h2>Fogalmak és meghatározások</h2>
+  <table>
     <tr><th>Fogalom</th><th>Meghatározás</th></tr>
-    <tr><td>Controller</td><td>API végpontokat kezelő réteg</td></tr>
-    <tr><td>Repository</td><td>Adatbázis műveletek absztrakciója</td></tr>
-    <tr><td>DTO</td><td>Adatátviteli objektum (pl. válasz JSON)</td></tr>
-    <tr><td>Validator</td><td>Bemeneti adatok ellenőrzése</td></tr>
-    <tr><td>Swagger UI</td><td>Automatikusan generált API tesztfelület</td></tr>
+    <tr><td>Controller</td><td>Az alkalmazás logikáját vezérlő komponens, amely kezeli a felhasználói kéréseket és válaszokat.</td></tr>
+    <tr><td>Repository</td><td>Adat-hozzáférési réteg, amely elválasztja az üzleti logikát az adatbázis műveletektől.</td></tr>
+    <tr><td>DTO (Data Transfer Object)</td><td>Adatátviteli objektum, amelyet a rétegek közötti adatcsere egyszerűsítésére használnak.</td></tr>
+    <tr><td>Service</td><td>Üzleti logikát megvalósító komponens, amely a Controller és a Repository között helyezkedik el.</td></tr>
+    <tr><td>Validator</td><td>Olyan modul, amely ellenőrzi a bemeneti adatok helyességét (pl. magasság, email formátum).</td></tr>
+    <tr><td>Entity</td><td>Az adatbázisban tárolt objektum reprezentációja (pl. Felhasználó, Foglalás).</td></tr>
+    <tr><td>ORM (Object-Relational Mapping)</td><td>Technológia, amely az objektumokat adatbázis táblákhoz köti (pl. SQLAlchemy).</td></tr>
+    <tr><td>Swagger UI</td><td>Automatikusan generált API dokumentációs felület, amely interaktív tesztelést tesz lehetővé.</td></tr>
+    <tr><td>CI/CD</td><td>Folyamatos integráció és szállítás, amely automatizálja a tesztelést és a telepítést.</td></tr>
+    <tr><td>Unit Test</td><td>Kisebb kódrészletek (függvények, metódusok) tesztelése önállóan.</td></tr>
+    <tr><td>Integration Test</td><td>Különálló modulok együttműködésének tesztelése.</td></tr>
+    <tr><td>JSON</td><td>Adatcsere formátum, amelyet az API válaszokhoz és kérésekhez használnak.</td></tr>
   </table>
+
+  <p class="note">A szótár folyamatosan bővül a projekt előrehaladtával. A definíciók legyenek rövidek, pontosak és egyértelműek.</p>
+
 </body>
 </html>
