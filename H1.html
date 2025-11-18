@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>🧩 H1 – Projektterv</title>
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #5b4b8a;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 0.6rem;
+      text-align: left;
+    }
+    th {
+      background: #eee;
+    }
+    ul {
+      margin: 0.5rem 0 0.5rem 1.5rem;
+    }
+    .note {
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧩 H1 – Projektterv</h1>
+  <p><strong>Projekt:</strong> Magasság-alapú színházi jegyfoglaló rendszer (FastAPI)<br>
+  <strong>Csapat:</strong> "dájnamik" DUO – Matyi Bernát, Bodnár Dániel<br>
+  <strong>Dátum:</strong> 2025. október</p>
+
+  <h2>👥 Csapattagok és szerepek</h2>
+  <table>
+    <tr><th>Név</th><th>Szerepkör</th><th>Felelősségek</th></tr>
+    <tr><td><em>Matyi Bernát</em></td><td>Fejlesztő & Dokumentáció felelős</td><td>Python modulok implementálása, dokumentációk (SRS, Vízió, tervek) formázása és előkészítése leadásra</td></tr>
+    <tr><td><em>Bodnár Dániel</em></td><td>Csapatvezető & Tesztelési felelős</td><td>Ütemezés, GitHub repo kezelése, mérföldkövek nyomon követése, tesztelési terv és automatizált tesztek</td></tr>
+  </table>
+
+  <p><strong>Csapatkommunikáció:</strong></p>
+  <ul>
+    <li>Belső megbeszélés: <em>Discord/Messenger</em></li>
+    <li>Feladatkövetés: <em>GitHub Issues + Project board</em></li>
+    <li>Heti 1 státusz egyeztetés + mérföldkő előtti külön review</li>
+  </ul>
+
+  <h2>📆 Fejlesztési terv – Mérföldkövek (12 hetes ütemezés)</h2>
+  <table>
+    <tr><th>Mérföldkő</th><th>Leszállítandó</th><th>Határidő</th></tr>
+    <tr><td><em>H1</em></td><td>Projektterv</td><td><em>1. hét</em></td></tr>
+    <tr><td><em>H2</em></td><td>Vízió dokumentum + frissített terv + munkanapló indítása</td><td><em>3. hét</em></td></tr>
+    <tr><td><em>H3</em></td><td>SRS, Fogalomtár, Felhasználói kézikönyv v1</td><td><em>6. hét</em></td></tr>
+    <tr><td><em>H4</em></td><td>Analízis modell + rendszertervezési dokumentum (UML / architektúra)</td><td><em>9. hét</em></td></tr>
+    <tr><td><em>H5</em></td><td>Python prototípus + Tesztelési terv + GitHub-ra feltöltött működő verzió</td><td><em>12. hét</em></td></tr>
+  </table>
+  <p class="note">💬 Megjegyzés: H4 előtt buffer idő fenntartva (vizsgák / egyéb terhelés miatt)</p>
+
+  <h2>🛠 Technológiák és eszközök</h2>
+  <table>
+    <tr><th>Terület</th><th>Választott megoldás</th></tr>
+    <tr><td><em>Programozási nyelv</em></td><td>Python (3.11+)</td></tr>
+    <tr><td><em>Framework</em></td><td>(FastAPI / Flask – döntés alatt)</td></tr>
+    <tr><td><em>Adatkezelés (prototípus)</em></td><td>Egyszerű JSON / SQLite</td></tr>
+    <tr><td><em>IDE / fejlesztői eszközök</em></td><td>Visual Studio Code</td></tr>
+    <tr><td><em>Verziókezelés</em></td><td>Git + GitHub (branch: feature/... + Pull Request workflow)</td></tr>
+    <tr><td><em>Tesztelés</em></td><td>pytest + manuális forgatókönyvek</td></tr>
+    <tr><td><em>CI (később)</em></td><td>GitHub Actions</td></tr>
+  </table>
+
+  <h2>⚙ Módszertan és technikák</h2>
+  <ul>
+    <li><em>Fejlesztési megközelítés:</em> Könnyített Agile (heti célkitűzések)</li>
+    <li><em>Feladatkezelés:</em> GitHub Issues + címkék (todo, in progress, done)</li>
+    <li><em>Tesztelési stratégia:</em>
+      <ul>
+        <li>Unit tesztek: pytest</li>
+        <li>Validációs teszt: bemeneti adatok ellenőrzése</li>
+        <li>Integrációs teszt: legalább egy API endpoint/részfunkció</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>🗂 Dokumentumok és felelősségek</h2>
+  <table>
+    <tr><th>Dokumentum</th><th>Felelős</th><th>Határidő</th></tr>
+    <tr><td>Vízió dokumentum</td><td>Matyi Bernát</td><td>3. hét</td></tr>
+    <tr><td>Projektterv frissítés</td><td>Bodnár Dániel</td><td>3. hét</td></tr>
+    <tr><td>SRS</td><td>Matyi Bernát</td><td>6. hét</td></tr>
+    <tr><td>Fogalomtár</td><td>Bodnár Dániel</td><td>6. hét</td></tr>
+    <tr><td>Analízis modell</td><td>Matyi Bernát</td><td>9. hét</td></tr>
+    <tr><td>Rendszertervezés</td><td>Bodnár Dániel</td><td>9. hét</td></tr>
+    <tr><td>Felhasználói dokumentáció</td><td>Matyi Bernát</td><td>12. hét</td></tr>
+    <tr><td>Tesztelési terv</td><td>Bodnár Dániel</td><td>12. hét</td></tr>
+    <tr><td><em>Python prototípus (GitHub repo)</em></td><td><em>Mindkettő</em></td><td>12. hét</td></tr>
+  </table>
+
+  <h2>✅ Tesztelési követelmények</h2>
+  <ul>
+    <li><em>Cél lefedettség:</em> legalább <em>70%</em> a fő modulokra</li>
+    <li>Teszttípusok:
+      <ul>
+        <li>Unit tesztek (pytest)</li>
+        <li>Input-validáció teszt</li>
+        <li>Egy egyszerű endpoint / funkció integrációs teszt</li>
