@@ -3,24 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <title>H4/6 – Felhasználói dokumentáció v1.1</title>
+  <style>
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: #f9f9fb;
+      color: #333;
+      line-height: 1.65;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      color: #5b4b8a;
+    }
+    h1 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+    h2 { font-size: 1.5rem; margin-top: 1.5rem; border-bottom: 2px solid #7a65d9; padding-bottom: 0.3rem; }
+    h3 { font-size: 1.25rem; margin-top: 1rem; }
+    ul { margin: 0.5rem 0 0.75rem 1.25rem; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      background: #fff;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.7rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #efeff7;
+      color: #352c55;
+      font-weight: 600;
+    }
+    .note { color: #555; font-style: italic; margin-top: 0.5rem; }
+  </style>
 </head>
 <body>
-  <h1>H4/6 – Felhasználói dokumentáció v1.1</h1>
-  <p>Frissített funkciók és képernyők bemutatása.</p>
 
-  <h2>Új funkciók</h2>
+  <h1>📙 H4/6 – Felhasználói dokumentáció v1.1</h1>
+  <p>A dokumentáció célja, hogy a felhasználók számára egyértelmű útmutatót adjon a rendszer használatához. Ez a verzió a H3-hoz képest frissített funkciókat és képernyőket tartalmazza.</p>
+
+  <h2>1. Bevezetés</h2>
+  <p>A rendszer egy magasság-alapú színházi jegyfoglaló alkalmazás, amely biztosítja, hogy a nézők látótere ne legyen korlátozott. A dokumentáció bemutatja a fő funkciókat, képernyőket és a használat lépéseit.</p>
+
+  <h2>2. Új funkciók</h2>
   <ul>
-    <li>Magasság-alapú foglalás visszajelzése</li>
-    <li>Swagger UI: új végpontok</li>
+    <li><strong>Magasság-ellenőrzés:</strong> Foglaláskor a rendszer ellenőrzi, hogy az előtte ülő nézők magassága ne haladja meg a felhasználóét.</li>
+    <li><strong>Alternatív ülésajánlás:</strong> Ha a választott hely nem megfelelő, a rendszer automatikusan ajánl másik ülőhelyet.</li>
+    <li><strong>Admin funkciók:</strong> Terem konfigurációk kezelése, foglaltság megtekintése.</li>
   </ul>
 
-  <h2>Képernyőképek</h2>
-  <p>Ülésrács, foglalási válasz: 201, 409, 404</p>
+  <h2>3. Képernyők</h2>
+  <table>
+    <tr><th>Képernyő</th><th>Leírás</th></tr>
+    <tr><td>Kezdőlap</td><td>Projekt bemutatása, navigációs menü</td></tr>
+    <tr><td>Jegyfoglalás</td><td>Ülésrács vizualizáció, magasság megadása, foglalás gomb</td></tr>
+    <tr><td>Profil</td><td>Felhasználói adatok, foglalások listája</td></tr>
+    <tr><td>Admin</td><td>Terem szerkesztés, foglaltság kezelése</td></tr>
+  </table>
 
-  <h2>Módosult elemek</h2>
+  <h2>4. Használati útmutató</h2>
+  <ol>
+    <li>Nyisd meg a <em>Kezdőlapot</em>, és válaszd a „Jegyfoglalás” menüpontot.</li>
+    <li>Válassz egy szabad ülést a vizualizációból.</li>
+    <li>Add meg a magasságodat.</li>
+    <li>Kattints a „Foglalás” gombra.</li>
+    <li>Sikeres foglalás esetén a rendszer visszajelzést ad, és a foglalás megjelenik a <em>Profil</em> oldalon.</li>
+    <li>Ha a hely nem megfelelő, a rendszer alternatív ajánlatot tesz.</li>
+  </ol>
+
+  <h2>5. Hibakezelés</h2>
   <ul>
-    <li>Új input mező: magasság_cm</li>
-    <li>Változott visszajelzési logika</li>
+    <li><strong>„Előtted magasabb néző ülne”:</strong> A rendszer elutasítja a foglalást, és alternatív helyet ajánl.</li>
+    <li><strong>„Nincs megadva magasság”:</strong> A foglalás gomb inaktív, amíg a felhasználó nem adja meg a magasságát.</li>
+    <li><strong>„Ülés foglalt”:</strong> A rendszer pirossal jelzi a foglalt helyeket.</li>
   </ul>
+
+  <h2>6. Példák</h2>
+  <ul>
+    <li>Felhasználó 170 cm → előtte ülő 185 cm → foglalás elutasítva, ajánlott alternatív hely.</li>
+    <li>Felhasználó 190 cm → előtte ülő 175 cm → foglalás elfogadva.</li>
+  </ul>
+
+  <h2>7. Változások a H3-hoz képest</h2>
+  <ul>
+    <li>Új funkció: alternatív ülésajánlás</li>
+    <li>Admin felület bővítve</li>
+    <li>UI frissítve: reszponzív design</li>
+  </ul>
+
+  <p class="note">Ha nem történt volna változás, a dokumentációban szerepelne: „Nincs változás a H3-hoz képest.”</p>
+
 </body>
 </html>
