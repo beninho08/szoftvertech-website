@@ -45,27 +45,43 @@
     }
 
     nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1rem;
       margin: 2rem auto;
       max-width: var(--maxw);
       padding: 0 1rem;
     }
 
-    nav a {
-      padding: 0.9rem 1.6rem;
+    .nav-section {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(91,75,138,0.15);
+      padding: 1rem;
+    }
+
+    .nav-section h3 {
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+      font-size: 1.2rem;
+      border-bottom: 1px solid var(--accent-light);
+      padding-bottom: 0.3rem;
+    }
+
+    .nav-section a {
+      display: block;
+      margin: 0.4rem 0;
+      padding: 0.6rem 1rem;
       background: var(--accent);
       color: #fff;
-      border-radius: 12px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(91,75,138,0.25);
+      box-shadow: 0 2px 6px rgba(91,75,138,0.25);
     }
 
-    nav a:hover {
+    .nav-section a:hover {
       background: var(--accent-light);
       transform: translateY(-2px);
     }
@@ -82,11 +98,6 @@
       padding: 2rem;
       box-shadow: 0 8px 24px rgba(30,30,60,0.08);
       margin-bottom: 2rem;
-      transition: transform 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
     }
 
     .card h2 {
@@ -99,7 +110,6 @@
 
     .card p {
       color: #444;
-      white-space: pre-line;
       font-size: 1.05rem;
     }
 
@@ -118,7 +128,7 @@
     }
 
     @media (max-width: 880px){
-      nav { flex-direction: column; gap: 0.75rem; }
+      nav { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -130,30 +140,43 @@
   </header>
 
   <nav>
-    <!-- H1 és H2 -->
-    <a href="#" onclick="loadDoc('H1.html','📘 H1 – Projektterv')">📘 H1 – Projektterv</a>
-    <a href="#" onclick="loadDoc('H2.html','📗 H2 – Vízió dokumentum')">📗 H2 – Vízió dokumentum</a>
+    <div class="nav-section">
+      <h3>📘 Alapdokumentumok</h3>
+      <a href="#" onclick="loadDoc('H1.html','📘 H1 – Projektterv')">H1 – Projektterv</a>
+      <a href="#" onclick="loadDoc('H2.html','📗 H2 – Vízió dokumentum')">H2 – Vízió dokumentum</a>
+    </div>
 
-    <!-- H3 -->
-    <a href="#" onclick="loadDoc('H3|1.html','📙 H3/1 – Projekt áttekintés')">📙 H3/1 – Projekt áttekintés</a>
-    <a href="#" onclick="loadDoc('H3|2.html','📙 H3/2 – SRS specifikáció')">📙 H3/2 – SRS specifikáció</a>
-    <a href="#" onclick="loadDoc('H3|3.html','📙 H3/3 – Szótár')">📙 H3/3 – Szótár</a>
-    <a href="#" onclick="loadDoc('H3|4.html','📙 H3/4 – Felhasználói dokumentáció')">📙 H3/4 – Felhasználói dokumentáció</a>
+    <div class="nav-section">
+      <h3>📙 H3 – Specifikációk</h3>
+      <a href="#" onclick="loadDoc('H3|1.html','📙 H3/1 – Projekt áttekintés')">H3/1 – Projekt áttekintés</a>
+      <a href="#" onclick="loadDoc('H3|2.html','📙 H3/2 – SRS specifikáció')">H3/2 – SRS specifikáció</a>
+      <a href="#" onclick="loadDoc('H3|3.html','📙 H3/3 – Szótár')">H3/3 – Szótár</a>
+      <a href="#" onclick="loadDoc('H3|4.html','📙 H3/4 – Felhasználói dokumentáció')">H3/4 – Felhasználói dokumentáció</a>
+    </div>
 
-    <!-- H4 -->
-    <a href="#" onclick="loadDoc('H4|1.html','🧠 H4/1 – Analízis modell')">🧠 H4/1 – Analízis modell</a>
-    <a href="#" onclick="loadDoc('H4|2.html','🧩 H4/2 – Rendszerterv')">🧩 H4/2 – Rendszerterv</a>
-    <a href="#" onclick="loadDoc('H4|3.html','🖥️ H4/3 – UI terv')">🖥️ H4/3 – UI terv</a>
-    <a href="#" onclick="loadDoc('H4|4.html','🗄️ H4/4 – Adatbázis terv')">🗄️ H4/4 – Adatbázis terv</a>
-    <a href="#" onclick="loadDoc('H4|5.html','📘 H4/5 – Szótár v1.1')">📘 H4/5 – Szótár v1.1</a>
-    <a href="#" onclick="loadDoc('H4|6.html','📙 H4/6 – Felhasználói dokumentáció')">📙 H4/6 – Felhasználói dokumentáció</a>
-    <a href="#" onclick="loadDoc('H4|7.html','📅 H4/7 – Munkanapló')">📅 H4/7 – Munkanapló</a>
+    <div class="nav-section">
+      <h3>🧩 H4 – Tervezési fázis</h3>
+      <a href="#" onclick="loadDoc('H4|1.html','🧠 H4/1 – Analízis modell')">H4/1 – Analízis modell</a>
+      <a href="#" onclick="loadDoc('H4|2.html','🧩 H4/2 – Rendszerterv')">H4/2 – Rendszerterv</a>
+      <a href="#" onclick="loadDoc('H4|3.html','🖥️ H4/3 – UI terv')">H4/3 – UI terv</a>
+      <a href="#" onclick="loadDoc('H4|4.html','🗄️ H4/4 – Adatbázis terv')">H4/4 – Adatbázis terv</a>
+      <a href="#" onclick="loadDoc('H4|5.html','📘 H4/5 – Szótár v1.1')">H4/5 – Szótár v1.1</a>
+      <a href="#" onclick="loadDoc('H4|6.html','📙 H4/6 – Felhasználói dokumentáció')">H4/6 – Felhasználói dokumentáció</a>
+      <a href="#" onclick="loadDoc('H4|7.html','📅 H4/7 – Munkanapló')">H4/7 – Munkanapló</a>
+    </div>
   </nav>
 
   <main id="content">
     <div class="card">
-      <h2>Kezdőlap</h2>
-      <p>Üdvözlünk a projektoldalon! Válassz dokumentumot a fenti menüből.</p>
+      <h2>Projekt összefoglaló</h2>
+      <p>
+        A „Magasság-alapú Színházi Jegyfoglaló Rendszer” célja, hogy a nézők élményét javítsa azáltal, 
+        hogy a jegyfoglalás során figyelembe veszi a felhasználók magasságát. Így elkerülhető, hogy 
+        egy magasabb néző kitakarja az alacsonyabb előtt a színpadot. A rendszer FastAPI alapokon 
+        készül, modern UI-val, adatbázis-tervvel és részletes dokumentációval. A projektet a 
+        „dájnamik DUO” csapat (Matyi Bernát és Bodnár Dániel) készíti a Szoftvertechnológia 
+        tantárgy keretében.
+      </p>
     </div>
   </main>
 
@@ -166,15 +189,4 @@
       try {
         const response = await fetch(file);
         if (!response.ok) throw new Error("Nem található: " + file);
-        const text = await response.text();
-        document.getElementById('content').innerHTML =
-          `<div class="card"><h2>${title}</h2><p>${text}</p></div>`;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } catch (err) {
-        document.getElementById('content').innerHTML =
-          `<div class="card"><h2>${title}</h2><p style="color:red;">Hiba: ${err.message}</p></div>`;
-      }
-    }
-  </script>
-</body>
-</html>
+        const text = await response
